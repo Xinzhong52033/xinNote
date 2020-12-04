@@ -186,7 +186,7 @@ git tag
 git archive(归档) master --predix='hd/(打包的文件目录)' --forma=zip > hdcms.zip(打包的文件名称)
 ````
 
-
+#### 远程推送
 
 ```git
 # 把网络仓库的连接放入别名origin中
@@ -198,4 +198,10 @@ git clone https://github.com/Xinzhong52033/2007-1.git
 #有本地仓库, 拿代码
 git pull 网络库地址
 ```
+
+还可以通过ssh创建连接
+
+#### 本地分支与远程分支同步
+
+创建本地分支成功后, 推送远程仓库会有自动创建新分支
 
