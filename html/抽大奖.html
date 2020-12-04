@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <style type="text/css">
+        #choujiang {
+            width: 410px;
+            margin: 0 auto;
+            font-size: 16px;
+        }
+        button {
+            display: block;
+            width: 100px;
+            height: 50px;
+            margin: 5px auto;
+        }
+        .heihei {
+            width: 410px;
+            height: 50px;
+        }
+        .lala {
+            margin: 1px;
+            float: left;
+            width: 80px;
+            height: 50px;
+            border: 1px solid indianred;
+            text-align: center;
+            line-height: 50px;
+            box-sizing: border-box;
+        }
+        .aa {
+            margin: 1px;
+            float: left;
+            width: 80px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div id="choujiang">
+       <button>开始</button>
+       <div class="heihei">
+           <div class="aa"></div>
+           <div class="lala">黄从容</div>
+           <div class="lala">郎思亲</div>
+           <div class="lala">杨涵寒</div>
+           <div class="lala">刘亚辉</div>
+       </div>
+       <div class="heihei">
+           <div class="lala">龚安辉</div>
+           <div class="lala">邓勇</div>
+           <div class="lala">郑可</div>
+           <div class="lala">叶洪超</div>
+           <div class="lala">王宇</div>
+       </div>
+       <div class="heihei">
+           <div class="lala">代智健</div>
+           <div class="lala">张彬</div>
+           <div class="lala">周彦希</div>
+           <div class="lala">王登峰</div>
+           <div class="lala">钟鑫</div>
+       </div>
+       <div class="heihei">
+           <div class="lala">邓淞柏</div>
+           <div class="lala">刘恒</div>
+           <div class="lala">李睿</div>
+           <div class="lala">兰洋</div>
+           <div class="lala">罗丹</div>
+       </div>
+       <div class="heihei">
+           <div class="aa"></div>
+           <div class="lala">叶旭安</div>
+           <div class="lala">田巧云</div>
+           <div class="lala">宋国英</div>
+           <div class="lala">杨智瑞</div>
+       </div> 
+    </div>
+    <script type="text/javascript">
+        // 在数组随机得到n个数据组成数组
+        function getArr(n) {
+            // 设置抽奖数组
+            var arr = [
+                    00, 01, 02, 03,
+                04, 05, 06, 07, 08, 
+                09, 10, 11, 12, 13, 
+                14, 15, 16, 17, 18,
+                    19, 20, 21, 22
+            ];
+            // 中奖数组
+            var arr1 = [];
+            for (var i=0; i<n; i++) {
+            	//产生0-lenght-1的随机数字,将数字作为下标,在原数组把数字拿出来
+            	//随机下标是    
+            	var xia = parseInt(Math.random() * arr.length);
+            	//抽到的人,并把他从数组中删除
+            	var name = arr.splice(xia,1);
+            	//将抽到的人放到空数组中
+            	arr1.push(name);         
+            }
+            //返回中奖的人
+            return arr1;
+        }
+        // dom
+        // 触发事件的元素
+        var button = document.getElementsByTagName("button")[0];
+        // 绑定事件触发函数
+        button.onclick = function () {
+            
+            // 查找修改的元素
+            // 查到所有学生
+            var stus = document.getElementsByClassName("lala");
+            // 设置一个计时器
+            // 这是开始的次数
+            var start = 0;
+            var timer = setInterval(function () {
+                // 每次将所有背景改为白色
+                for (var elem of stus) {
+                   elem.style.backgroundColor = ""; 
+                }
+                // 将学生下标为抽奖数组的背景色改成粉色
+                // 获得中奖数组
+                var arr = getArr(3);
+                console.log(arr);
+                // 数组中元素的值作为stus的下标的相应div
+                for (var i of arr) {
+                    stus[i].style.backgroundColor = "hotpink";
+                }
+                // 次数加1
+                start++;
+                // 十次以后停止
+                if (start == 20) {
+                    clearInterval(timer);
+                }
+            }, 120);
+            
+            
+        }
+    </script>
+</body>
+</html>
