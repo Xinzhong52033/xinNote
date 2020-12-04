@@ -190,8 +190,9 @@ git archive(归档) master --predix='hd/(打包的文件目录)' --forma=zip > h
 ```git
 # 把网络仓库的连接放入别名origin中
 git remote add origin https://github.com/Xinzhong52033/2007-1.git
-#查看但那个钱origin值
+#查看origin值
 git remote show origin
+git remote -v
 # 修改origin
 git remote rm origin 先移除
 git remote add origin xxx 再添加  或者
@@ -205,7 +206,28 @@ git clone https://github.com/Xinzhong52033/2007-1.git
 git pull 网络库地址
 ```
 
-**ssh创建连接**
+#### **使用ssh创建远程仓库连接**
+
+1.**生成秘钥**
+
+在桌面使用gitbash
+
+````
+ssh-keygen -t rsa # 一直按回车生成
+````
+
+**2.查看秘钥**
+
+````
+cd ~/.ssh
+ls 显示有如下文件
+id_rsa  id_rsa.pub  known_hosts
+code id_rsa.pub 打开id_rsa.pub得到文件秘钥
+````
+
+**3.向github添加秘钥**
+
+在github点击头像点击settings -> SSH and GPG keys -> new SSH key -> 添加标题和秘钥即可
 
 
 
